@@ -1,4 +1,102 @@
-// component styles are encapsulated and only applied to their components
-* {
-  color: #FFEF00;
+// *** Variables
+$lightblue: #72C9DD;
+$paleblue: #5F7383;
+$deepblue: #1C8AAF;
+$darkbrown: #655250;
+$lightbrown: #DD8F3C;
+$darkred: #A7000D;
+$lightred: #C92027;
+$purple: #985291;
+$green: #3D604E;
+$white: #FFFFFF;
+$black: #000000;
+$twitter: #55acee;
+$linkedin: #007bb5;
+
+$sans-serif: "Roboto";//, Verdana, Geneva, Tahoma, sans-serif;
+$serif: "Slabo 27px";//, Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+
+.contact {
+  width: 75%;
+  margin: 0 auto;
+}
+
+form {
+    label {
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+
+        &.url {
+            display: none;
+        }
+    }
+
+    input, textarea {
+        width: 100%;
+        border: none;
+        padding: 5px 15px;
+        font-family: $serif;
+    }
+
+    textarea {
+        height: 5em;
+    }
+
+    button {
+        border: none;
+        background-color: lighten($green, 10);
+        color: $white;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1.3em;
+
+        &:hover {
+            background-color: $green;
+        }
+
+        &::before {
+            font-family: "FontAwesome";
+            content: "\f1d8";
+            margin-right: 15px;
+        }
+
+        &::after {
+            font-family: $sans-serif;
+            content: "Awesome, send it!";
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            background-color: lighten($darkred, 25);
+
+            &::before {
+                font-family: "FontAwesome";
+                content: "\f00d";
+                margin-right: 15px;
+            }
+
+            &::after {
+                font-family: $sans-serif;
+                content: "You'll have to fill in every field";
+            }
+        }
+    }
+}
+
+.thanks-message, .submitting-form {
+    height: 400px;
+}
+
+.resend {
+    border: 0;
+    background: 0;
+    color: $darkbrown;
+    font-size: 0.9em;
+    border-bottom: $darkbrown solid 1px;
+    cursor: pointer;
 }

@@ -6,13 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  data = {
+    name: '',
+    email: '',
+    message: ''
+  };
+
+  state = {
+      submitting: false,
+      submitted: false,
+      resend: false,
+      error: false
+  };
 
   constructor() {
     // Do stuff
   }
 
-  ngOnInit() {
-    console.log('Hello Home');
-  }
+  ngOnInit() { }
 
 }

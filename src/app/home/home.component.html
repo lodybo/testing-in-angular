@@ -1,3 +1,46 @@
-<p>
-  Home Works!
-</p>
+<div class="contact">
+  <section class="contact-form">
+        <p class="error-message" [hidden]="!state.error">
+            Something went wrong. Maybe you could try again?
+            Also I should let you know that I've been notified and I'm on the case.
+        </p>
+
+        <section [hidden]="state.submitted || state.submitting">
+            <h1>..or get in touch!</h1>
+
+            <p [hidden]="!state.resend">Another message!? Oh wow, it must be Christmas! :)</p>
+
+            <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+                <div class="form-group name">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="data.name" required/>
+                </div>
+
+                <div class="form-group email">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="data.email" required/>
+                </div>
+
+                <div class="form-group message">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" [(ngModel)]="data.message" required></textarea>
+                </div>
+
+                <!-- <div class="g-recaptcha" data-sitekey="6Len1BUUAAAAADVOvCOfWpsv5CEB1FT71GsXaMCJ"></div> -->
+
+                <button type="submit" id="submit" [disabled]="!contactForm.form.valid" (click)="sendForm()"></button>
+            </form>
+        </section>
+
+        <section class="submitting-form" [hidden]="!state.submitting">
+            <h1>Sending...</h1>
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span class="sr-only">Loading...</span>
+        </section>
+
+        <section class="thanks-message" [hidden]="!state.submitted">
+            <h1>Thanks! I'm looking forward to reading your message. Give me a day or two to get back to you.</h1>
+            <button class="resend" (click)="resendForm()">Wait, I want to sent another one!</button>
+        </section>
+    </section>
+</div>
