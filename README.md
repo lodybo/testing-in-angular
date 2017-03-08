@@ -6,3 +6,5 @@ In this presentation, we'll deep dive in:
 * unit testing
 * component testing
 * Protractor/E2E testing
+
+There is a server that's being used for mail communication. It's written in NodeJS
