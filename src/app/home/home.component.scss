@@ -49,7 +49,7 @@ form {
 
     button {
         border: none;
-        background-color: lighten($green, 10);
+        background-color: lighten($green, 10%);
         color: $white;
         padding: 10px 20px;
         cursor: pointer;
@@ -72,7 +72,7 @@ form {
 
         &:disabled {
             cursor: not-allowed;
-            background-color: lighten($darkred, 25);
+            background-color: lighten($darkred, 30%);
 
             &::before {
                 font-family: "FontAwesome";
