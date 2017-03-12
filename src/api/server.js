@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
@@ -13,6 +15,14 @@ app.get("/", (req, res) => {
   res.send(200, "Hello World!");
 });
 
-app.post("/", (req, res) => {
-  res.send(200, "Body received: " + JSON.stringify(req.body));
+app.post("/send/mail", (req, res) => {
+  let response = {
+    status: 200,
+    body: {
+      sendStatus: "Mail successfully sent",
+      receiver: req.body.email
+    }
+  };
+  
+  res.status(response.status).send(response.body);
 });
