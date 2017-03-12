@@ -2,7 +2,6 @@
   <section class="contact-form">
         <p class="error-message" [hidden]="!state.error">
             Something went wrong. Maybe you could try again?
-            Also I should let you know that I've been notified and I'm on the case.
         </p>
 
         <section [hidden]="state.submitted || state.submitting">
@@ -25,8 +24,6 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" [(ngModel)]="data.message" required></textarea>
                 </div>
-
-                <!-- <div class="g-recaptcha" data-sitekey="6Len1BUUAAAAADVOvCOfWpsv5CEB1FT71GsXaMCJ"></div> -->
 
                 <button type="submit" id="submit" [disabled]="!contactForm.form.valid" (click)="sendForm()"></button>
             </form>

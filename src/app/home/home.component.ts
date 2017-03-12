@@ -6,7 +6,7 @@ import { ContactService } from '../services/';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class HomeComponent implements OnInit {
     @ViewChild('contactForm') contactForm;
     data = {
         name: '',
@@ -51,7 +51,7 @@ export class ContactComponent implements OnInit {
 
         // Make REST call
         this.contactService.sendMail(this.data)
-            .subscribe((res) => {
+            .subscribe(() => {
                 // Mark form as submitted
                 this.state.submitted = true;
                 this.state.submitting = false;
