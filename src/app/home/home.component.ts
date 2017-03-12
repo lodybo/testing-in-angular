@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     state = {
         submitting: false,
         submitted: false,
-        resend: false,
         error: false
     };
 
@@ -71,6 +70,5 @@ export class HomeComponent implements OnInit {
 
     resendForm() {
         this.state.submitted = false;
-        this.state.resend = true;
     }
 }

@@ -7,8 +7,6 @@
         <section [hidden]="state.submitted || state.submitting">
             <h1>Get in touch!</h1>
 
-            <p [hidden]="!state.resend">Another message!? Oh wow, it must be Christmas! :)</p>
-
             <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
                 <div class="form-group name">
                     <label for="name">Name</label>
