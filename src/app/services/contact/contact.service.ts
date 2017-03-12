@@ -22,7 +22,7 @@ export class ContactService {
             headers: headers
         });
 
-        return this.http.post('https://lag9aq0jt4.execute-api.eu-west-1.amazonaws.com/prod/sendMail', mailData, options)
+        return this.http.post('http://localhost:9004/send/mail', mailData, options)
             .map(res => res.json())
             .catch(error => Observable.throw(error));
     }
