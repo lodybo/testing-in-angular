@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf node_modules doc dist && npm cache clean",
@@ -23,7 +23,7 @@
     "start": "concurrently --kill-others --prefix \"[{name}]\" --names \"APP,SERVER\" \"npm run server\" \"npm run api\"",
     "start:hmr": "npm run server -- --hot",
     "postinstall": "npm run webdriver-update",
-    "api": "node src/api/server.js"
+    "api": "nodemon src/api/server.js"
   },
   "dependencies": {
     "@angular/common": "2.4.7",
@@ -72,6 +72,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "2.0.2",
     "node-sass": "^4.5.0",
+    "nodemon": "^1.11.0",
     "null-loader": "0.1.1",
     "postcss-loader": "^1.1.0",
     "protractor": "^4.0.10",
