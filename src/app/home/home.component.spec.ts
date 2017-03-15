@@ -134,6 +134,8 @@ describe('Contact form: Component test', () => {
   }));
 });
 
+// Mock class, because we should black box our unit test and be in total control
+// ContactService has been tested in its own spec file
 class MockContactService {
     sendMail(mailData: MailData): Observable<any> {
         if (mailData.url !== '') {
