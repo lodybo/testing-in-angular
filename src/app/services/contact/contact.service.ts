@@ -10,8 +10,7 @@ export class ContactService {
 
     sendMail(mailData: MailData): Observable<any> {
         if (mailData.url !== '') {
-            // return Observable.create(observer => observer.onCompleted());
-            return Observable.empty();
+            return Observable.throw('Got ya, Winnie the Pooh!');
         }
 
         let headers = new Headers({

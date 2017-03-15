@@ -1,25 +1,12 @@
-// This shows a different way of testing a component, check about for a simpler one
-import { Component } from '@angular/core';
-
-import { TestBed } from '@angular/core/testing';
+import { MailData } from '../services/contact/maildata.interface';
+import { Observable } from 'rxjs/Rx';
+import { ContactService } from '../services';
+import { FormsModule } from '@angular/forms';
+import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { dispatchEvent } from '@angular/platform-browser/testing/browser_util';
 
 import { HomeComponent } from './home.component';
 
-describe('Home Component', () => {
-  const html = '<my-home></my-home>';
-
-  beforeEach(() => {
-    TestBed.configureTestingModule({declarations: [HomeComponent, TestComponent]});
-    TestBed.overrideComponent(TestComponent, { set: { template: html }});
-  });
-
-  it('should ...', () => {
-    const fixture = TestBed.createComponent(TestComponent);
-    fixture.detectChanges();
-    expect(fixture.nativeElement.children[0].textContent).toContain('Home Works!');
-  });
+describe('Contact form', () => {
 
 });
-
-@Component({selector: 'my-test', template: ''})
-class TestComponent { }
