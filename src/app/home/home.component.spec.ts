@@ -39,6 +39,25 @@ describe('Contact form: Isolated unit test', () => {
 
     expect(component.state.submitted).toBe(true);
   }));
+
+  it('should NOT send mail data if the form has been honey potted', fakeAsync(() => {
+    // Set component data, including the url parameter
+    component.data = {
+      name: 'Lody',
+      email: 'lody.borgers@philips.com',
+      message: 'Hello World',
+      url: 'visit http://bot.spamalot.com'
+    };
+
+    expect(component.state.submitted).toBe(false);
+    expect(component.state.error).toBe(false);
+
+    component.sendForm();
+    tick();
+
+    expect(component.state.submitted).toBe(false);
+    expect(component.state.error).toBe(true);
+  }));
 });
 
 describe('Contact form: Component test', () => {
@@ -118,7 +137,7 @@ describe('Contact form: Component test', () => {
 class MockContactService {
     sendMail(mailData: MailData): Observable<any> {
         if (mailData.url !== '') {
-            return Observable.empty();
+            return Observable.throw('Got ya, Winnie the Pooh!');
         }
 
         return Observable.of(mailData);
