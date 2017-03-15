@@ -10,3 +10,13 @@ import { HomeComponent } from './home.component';
 describe('Contact form', () => {
 
 });
+
+class MockContactService {
+    sendMail(mailData: MailData): Observable<any> {
+        if (mailData.url !== '') {
+            return Observable.throw('Got ya, Winnie the Pooh!');
+        }
+
+        return Observable.of(mailData);
+    }
+}
